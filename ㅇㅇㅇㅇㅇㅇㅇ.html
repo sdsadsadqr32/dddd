@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>탼프 능력 시험평가</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .question img {
+            max-width: 100%;
+            height: auto;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>탼프 능력 시험평가</h1>
+        <form id="examForm">
+            <!-- 문제 1 (객관식) -->
+            <div class="question">
+                <label>1. 태환의 생일은?</label>
+                <div>
+                    <input type="radio" id="q1a" name="q1" value="HyperText Markup Language">
+                    <label for="q1a">HyperText Markup Language</label>
+                </div>
+                <div>
+                    <input type="radio" id="q1b" name="q1" value="HyperTool Markup Language">
+                    <label for="q1b">HyperTool Markup Language</label>
+                </div>
+                <div>
+                    <input type="radio" id="q1c" name="q1" value="HyperText Makeup Language">
+                    <label for="q1c">HyperText Makeup Language</label>
+                </div>
+            </div>
+
+            <!-- 문제 2 (이미지 포함) -->
+            <div class="question">
+                <label>2. 다음 이미지의 인형의 이름은?</label>
+                <img src="https://www.ikea.com/kr/ko/images/products/gosig-golden-soft-toy-dog-golden-retriever__0710169_pe727372_s5.jpg" alt="문제 이미지">
+                <div>
+                    <input type="text" id="q2" name="q2" placeholder="정답을 입력하세요">
+                </div>
+            </div>
+
+            <!-- 문제 3 (체크박스) -->
+            <div class="question">
+                <label>3. 태환이 안먹는 것을 모두 선택하세요:</label>
+                <div>
+                    <input type="checkbox" id="q3a" name="q3" value="쌀국수">
+                    <label for="q3a">쌀국수</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="q3b" name="q3" value="마라탕">
+                    <label for="q3b">마라탕</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="q3c" name="q3" value="칼국수">
+                    <label for="q3c">칼국수</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="q3d" name="q3" value="떡볶이">
+                    <label for="q3d">떡볶이</label>
+                </div>
+            </div>
+
+            <button type="button" onclick="submitExam()">시험 제출</button>
+        </form>
+    </div>
+
+    <script>
+        function submitExam() {
+            const form = document.getElementById('examForm');
+            const formData = new FormData(form);
+
+            let result = "제출된 답변:\n";
+            for (const [key, value] of formData.entries()) {
+                result += `${key}: ${value}\n`;
+            }
+
+            alert(result); // 결과 출력 (실제 사용 시 서버로 전송 가능)
+        }
+    </script>
+</body>
+</html>
